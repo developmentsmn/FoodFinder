@@ -10,7 +10,11 @@ const navigator = createStackNavigator({
 }, {
   initialRouteName: 'Search',
   defaultNavigationOptions: {
-    title: "Restaurant Search"
+    title: "Restaurant Search",
+    headerTitleStyle: {
+      textAlign:'center', 
+      alignSelf:'center',
+      flex:1}
   }
 
 });
