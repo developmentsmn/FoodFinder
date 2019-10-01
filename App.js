@@ -8,12 +8,12 @@ import ShowMoreInfoScreen from './src/screens/ShowMoreInfoScreen';
 const navigator = createStackNavigator({
 
   Search: SearchScreen,
-  MoreInfo: ShowMoreInfoScreen
+  MoreInfoScreen: ShowMoreInfoScreen
 
 }, {
   initialRouteName: 'Search',
   defaultNavigationOptions: {
-    title: "Fooddy Buddy",
+    title: "Hotel Buddy",
     headerTitleStyle: {
       textAlign:'center', 
       alignSelf:'center',

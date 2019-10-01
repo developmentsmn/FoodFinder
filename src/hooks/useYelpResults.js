@@ -11,9 +11,10 @@ export default () => {
         try {
             const response = await yelp.get('/search', {
                 params: {
+                    categories: 'hotels',
                     limit: 50,
-                    term: searchTerm,
-                    location: 'san jose'
+                    // term: searchTerm,
+                    location: searchTerm
                 }
             });
             setResults(response.data.businesses);
@@ -23,7 +24,7 @@ export default () => {
     };
 
     useEffect(() => {
-        searchAPI('steak');
+        searchAPI('United States');
 
     }, [] );
 
