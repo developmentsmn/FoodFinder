@@ -6,6 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 const ResultsDetails = ({ result }) => {
     return(
         <View style={styles.containter}>
+            
             <Image style={styles.image} source = { { uri: result.image_url } } />
             <Text style={styles.name}> {result.name}</Text>
             <View style={styles.features} >
@@ -13,12 +14,15 @@ const ResultsDetails = ({ result }) => {
                 <Text>    Reviews {result.review_count}</Text>
             </View>
             
-            
         </View>
     );
 };
 
 const styles = StyleSheet.create({
+    containter: {
+        marginLeft: 10
+
+    },
     image: {
         width: 250,
         height: 185,
@@ -34,13 +38,8 @@ const styles = StyleSheet.create({
     features: {
         flexDirection: 'row',
         fontSize: 20
-    },
-    containter: {
-        marginLeft: 10
-
     }
-
-
+    
 });
 
 export default ResultsDetails;

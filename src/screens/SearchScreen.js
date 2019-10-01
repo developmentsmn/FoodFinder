@@ -1,12 +1,12 @@
 import React , {useState, useEffect} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useYelpResults';
 import ResultsList from '../components/ResultsList';
 
 
-const SearchScreen = () => {
+const SearchScreen = ( { navigation } ) => {
 
     const [term, setTerm] = useState('');
     const [searchAPI, results, errorMessage] = useResults();
@@ -17,7 +17,7 @@ const SearchScreen = () => {
         } );
     }
 
-    return <View>
+    return <>
 
         <SearchBar 
             term = {term} 
@@ -26,14 +26,24 @@ const SearchScreen = () => {
         />
         {errorMessage ? <Text>{errorMessage}</Text> : null}
 
-        <Text> Results found {results.length}</Text>
-        <ResultsList results = {filterResultsByPrice('$$')} title = 'Best Match'/>
-        <ResultsList results = {filterResultsByPrice('$')} title = 'Under Budget $'/>
-        <ResultsList results = {filterResultsByPrice('$$$')} title = 'Luxurious Dinners $$$'/>
+        {/* <Text> Results found {results.length}</Text> */}
+        <ScrollView>
+            <ResultsList results = {filterResultsByPrice('$$')} title = 'Best Match'
+            navigation = {navigation}/>
+            <ResultsList results = {filterResultsByPrice('$')} title = 'Under Budget $'
+            navigation = {navigation}/>
+            <ResultsList results = {filterResultsByPrice('$$$')} title = 'Luxurious Dinners $$$'
+            navigation={navigation}/>
+            
+        </ScrollView>
     
-    </View> 
+    </> 
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+});
 
 export default SearchScreen;

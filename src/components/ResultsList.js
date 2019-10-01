@@ -5,9 +5,10 @@ import ResultsYelpDetails from './ResultYelpDetails';
 
 const ResultsList = ({ title, results }) => {
     return (
-    <View>
+    <View style={styles.container}>
         <Text style = { styles.title } > {title} </Text>
         <FlatList
+            showsHorizontalScrollIndicator={false}
             horizontal
             data = { results }
             keyExtractor = { (result) => result.id }
@@ -24,7 +25,13 @@ const ResultsList = ({ title, results }) => {
 const styles = StyleSheet.create({
     title: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginLeft: 10
+        
+
+    },
+    container: {
+        marginBottom: 14
     }
 });
 
