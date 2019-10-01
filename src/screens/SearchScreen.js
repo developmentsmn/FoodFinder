@@ -17,12 +17,6 @@ const SearchScreen = () => {
         } );
     }
 
-    const filterResultsByRating = (rating) => {
-        return results.filter( result => {
-            return result.sort_by === rating
-        } );
-    }
-    
     return <View>
 
         <SearchBar 
@@ -33,11 +27,9 @@ const SearchScreen = () => {
         {errorMessage ? <Text>{errorMessage}</Text> : null}
 
         <Text> Results found {results.length}</Text>
-        <ResultsList results = {filterResultsByPrice('$')} title = 'Under Budget'/>
         <ResultsList results = {filterResultsByPrice('$$')} title = 'Best Match'/>
-
-        {/* <ResultsList results = {filterResultsByRating('best_match')} title='Best Reviews'/> */}
-        <ResultsList results = {filterResultsByPrice('$$$')} title = 'Luxurious Dinners'/>
+        <ResultsList results = {filterResultsByPrice('$')} title = 'Under Budget $'/>
+        <ResultsList results = {filterResultsByPrice('$$$')} title = 'Luxurious Dinners $$$'/>
     
     </View> 
 };
