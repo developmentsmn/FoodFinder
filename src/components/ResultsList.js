@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet, FlatList } from 'react-native';
+import { withNavigation } from 'react-navigation'
 
 import ResultsYelpDetails from './ResultYelpDetails';
 
@@ -14,7 +15,7 @@ const ResultsList = ({ title, results, navigation }) => {
             keyExtractor = { (result) => result.id }
             renderItem={({ item }) => {
                 return (
-                    <TouchableOpacity onPress = {() => navigation.navigate('MoreInfoScreen')} >
+                    <TouchableOpacity onPress = {() => navigation.navigate('MoreInfoScreen', {id: item.id} )} >
                        <ResultsYelpDetails result = { item } />
                     </TouchableOpacity>
                 );
@@ -37,4 +38,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ResultsList;
+export default withNavigation (ResultsList) ;

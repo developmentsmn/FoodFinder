@@ -1,11 +1,11 @@
 import React , {useState, useEffect} from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet , Image} from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 import ResultsList from '../components/ResultsList';
 import useResults from '../hooks/useYelpResults';
 
-const SearchScreen = ( { navigation } ) => {
+const SearchScreen = (  ) => {
 
     const [term, setTerm] = useState('');
     const [searchAPI, results, errorMessage] = useResults();
@@ -16,7 +16,8 @@ const SearchScreen = ( { navigation } ) => {
         } );
     }
 
-    return <>
+    return <View style={styles.container}>
+        {/* <Image style={styles.backgroundImage} source = { require('./image.jpg' )} /> */}
 
         <SearchBar 
             term = {term} 
@@ -29,21 +30,25 @@ const SearchScreen = ( { navigation } ) => {
         <ScrollView>
 
             <ResultsList results = {filterResultsByPrice('$$$')} title = 'Best Match'
-            navigation = {navigation}/>
-            <ResultsList results = {filterResultsByPrice('$$')} title = 'Under Budget $'
-            navigation = {navigation}/>
-            <ResultsList results = {filterResultsByPrice('$$$$')} title = 'Luxurious Stays $$$'
-            navigation={navigation}/>
+            />
+            <ResultsList results = {filterResultsByPrice('$$')} title = 'Under Budget'
+            />
+            <ResultsList results = {filterResultsByPrice('$$$$')} title = 'Luxurious Stays'
+            />
             
         </ScrollView>
     
-    </> 
+    </View> 
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1
-    }
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover', // or 'stretch'
+      }
 });
 
 export default SearchScreen;

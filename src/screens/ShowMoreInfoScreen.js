@@ -3,11 +3,12 @@ import {View, Text, StyleSheet } from 'react-native';
 
 
 
-const ShowMoreInfoScreen = () => {
+const ShowMoreInfoScreen = ({ navigate }) => {
     return(
-        <Text>More info </Text>
-    )
-    
+        <View>
+            <Text>More Info</Text>
+        </View>
+    ); 
 };
 
 export default ShowMoreInfoScreen;
