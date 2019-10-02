@@ -8,8 +8,6 @@ const signInGoogle = async (firebase) => {
       iosClientId: firebaseAPI.iosClientId,
 			androidClientId: firebaseAPI.androidClientId,
 
-			// iosClientId: '1084542544722-tpf7logcga6kfsiiaj8ahgb11flg35va.apps.googleusercontent.com',
-			// androidClientId: '1084542544722-bjvd08v8mn88l2rldhup8d29cntctg41.apps.googleusercontent.com',
 			// iosStandaloneAppClientId: `<YOUR_IOS_CLIENT_ID>`,
       // androidStandaloneAppClientId: `<YOUR_ANDROID_CLIENT_ID>`,
       
