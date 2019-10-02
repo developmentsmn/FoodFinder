@@ -18,7 +18,8 @@ class App extends React.Component {
 render() {
   return (
     <View style={styles.container}>
-      <Image style={styles.backgroundImg} source={require('./image.jpg') } />
+      <Image style={styles.backgroundImg} source={require('./signInImage.jpg') } />
+      <Text style={styles.title}>Hotel Buddy</Text>
       <Button title="Sign In with Google" onPress={this.signInWithGoogle}/>
     </View>
   );
@@ -35,8 +36,15 @@ const styles = StyleSheet.create({
   },
   backgroundImg: {
     position: 'absolute',
-  
-  }
+  },
+  title: {
+    fontSize: 60,
+    fontWeight: 'bold',
+    marginBottom: 80,
+    fontStyle: 'italic',
+    color: "white",
+
+  },
 });
 
 export default App;
