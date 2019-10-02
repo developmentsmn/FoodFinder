@@ -1,12 +1,11 @@
 import React , {useState, useEffect} from 'react';
-import { ScrollView, View, Text, StyleSheet , Image} from 'react-native';
+import { ScrollView, View, Text, StyleSheet , Button} from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 import ResultsList from '../components/ResultsList';
 import useResults from '../hooks/useYelpResults';
 
-const SearchScreen = (  ) => {
-
+const SearchScreen = () => {
     const [term, setTerm] = useState('');
     const [searchAPI, results, errorMessage] = useResults();
 
@@ -41,13 +40,39 @@ const SearchScreen = (  ) => {
     </View> 
 };
 
+SearchScreen.navigationOptions = ({ navigation }) => {
+    return {
+        title: "Hotel Buddy",
+        headerRight: (
+        <Button
+            onPress={() => navigation.navigate('Settings')}
+            title="Settings"
+            color = "#3366ff"
+        />
+        ),
+        headerTitleStyle: {
+        // textAlign:'center', 
+        // alignSelf:'center',
+        color: 'white',
+        flex:1
+        }, 
+        headerStyle: {
+        backgroundColor: '#0099ff',
+        },
+        headerRightContainerStyle: {
+        paddingRight: 10,
+        
+        },
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1
     },
     backgroundImage: {
         flex: 1,
-        resizeMode: 'cover', // or 'stretch'
+        resizeMode: 'cover'
       }
 });
 

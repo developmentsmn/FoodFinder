@@ -11,3 +11,4 @@ web-build/
 web-report/
 src/api/yelp.js
 src/api/firebaseAPI.js
+src/credentials/firebaseConfig.js
