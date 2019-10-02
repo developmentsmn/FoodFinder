@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <View style = {styles.container}>
-        <Image style={styles.backgroundImg} source={require('./settings.jpg') } />
+        <Image style={styles.backgroundImg} source={require('./signOutImage.jpg') } />
         <Button title="Sign Out" onPress={this.signOutWithGoogle}/>
       </View>
     );
