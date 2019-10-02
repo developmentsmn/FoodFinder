@@ -1,7 +1,6 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import {Button} from 'react-native'
 
 import SearchScreen from './src/screens/SearchScreen';
 import ShowMoreInfoScreen from './src/screens/ShowMoreInfoScreen';
@@ -12,9 +11,9 @@ import { FirebaseContext, Firebase } from './src/components/Firebase';
 
 
 
-const AuthStack = createStackNavigator({ 
-  SignIn: SignInScreen 
-});
+// const AuthStack = createStackNavigator({ 
+//   SignIn: SignInScreen 
+// });
 
 
 const AppStack = createStackNavigator({
@@ -38,8 +37,7 @@ const AppStack = createStackNavigator({
       backgroundColor: '#0099ff',
     },
     headerRightContainerStyle: {
-      paddingRight: 10,
-      
+      paddingRight: 10,  
     },
   }
 });
@@ -49,7 +47,7 @@ const AppContainer = createAppContainer(
     {
       AuthLoading: AuthLoadingScreen,
       App: AppStack,
-      Auth: AuthStack,
+      Auth: SignInScreen,
     }
   )
 );
@@ -65,26 +63,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// const navigator = createStackNavigator({
-
-//   // SignIn: SignInScreen,
-//   Search: SearchScreen,
-//   MoreInfoScreen: ShowMoreInfoScreen
-
-// }, {
-//   initialRouteName: 'Search',
-//   defaultNavigationOptions: {
-//     title: "Hotel Buddy",
-//     headerTitleStyle: {
-//       textAlign:'center', 
-//       alignSelf:'center',
-//       color: 'white',
-//       flex:1}, 
-//       headerStyle: {
-//         backgroundColor: '#0099ff',
-//       }
-//   }
-// });
-
-// export default createAppContainer(navigator);
