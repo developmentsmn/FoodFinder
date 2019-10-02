@@ -1,5 +1,5 @@
 # Hotel-Buddy
-Android / IOS mobile app to find the best hotels around. 
+React Native Android / IOS mobile app to find the best hotels around. 
 
 ## Key Features 
 Implemented Google user sign in authentication.
