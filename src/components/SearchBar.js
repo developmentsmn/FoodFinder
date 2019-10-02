@@ -11,12 +11,11 @@ const SearchBar = ({term, onTermChange, onTermSubmit}) => {
             autoCapitalize = "none"
             autoCorrect = {false}
             style = {styles.inputSyle}
-            placeholder = "Search by name..." 
+            placeholder = "Search location ..." 
             value = {term}
-            onEndEditing = {onTermSubmit}
             onChangeText = {onTermChange}
+            onEndEditing = {onTermSubmit}
         />
-
     </View>
 };
 
@@ -26,7 +25,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0EEEE',
         height: 50,
         borderRadius: 5,
-        marginHorizontal: 15,
+        marginHorizontal: 10,
+        marginBottom: 5,
         flexDirection: 'row'
 
     },
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         color: 'red',
         fontSize: 35,
         alignSelf: 'center',
-        marginHorizontal: 15
+        marginHorizontal: 10
     }
 
 });

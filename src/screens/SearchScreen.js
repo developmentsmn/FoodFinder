@@ -1,31 +1,79 @@
-import React , {useState} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React , {useState, useEffect} from 'react';
+import { ScrollView, View, Text, StyleSheet , Button} from 'react-native';
 
 import SearchBar from '../components/SearchBar';
-
+import ResultsList from '../components/ResultsList';
+import useResults from '../hooks/useYelpResults';
 
 const SearchScreen = () => {
-
     const [term, setTerm] = useState('');
-    const [results, setResults] = useState([])
+    const [searchAPI, results, errorMessage] = useResults();
 
-    searchAPI = async () => {
-        const response = APIyelp.get('/search')
+    const filterResultsByPrice = (price) => {
+        return results.filter( result => {
+            return result.price === price
+        } );
     }
 
-    return <View>
+    return <View style={styles.container}>
+        {/* <Image style={styles.backgroundImage} source = { require('./image.jpg' )} /> */}
 
         <SearchBar 
-            term= {term} 
-            onTermChange={newTerm => setTerm(newTerm)}
-            onTermSubmit = {() => console.log('term was changed')}
+            term = {term} 
+            onTermChange = { setTerm }
+            onTermSubmit = { () => searchAPI( term )}
         />
-        <Text>{term}</Text>
-        <Text> Results found {results.length}</Text>
+        {errorMessage ? <Text>{errorMessage}</Text> : null}
+
+        {/* <Text> Results found {results.length}</Text> */}
+        <ScrollView>
+
+            <ResultsList results = {filterResultsByPrice('$$$')} title = 'Best Match'
+            />
+            <ResultsList results = {filterResultsByPrice('$$')} title = 'Under Budget'
+            />
+            <ResultsList results = {filterResultsByPrice('$$$$')} title = 'Luxurious Stays'
+            />
+            
+        </ScrollView>
     
     </View> 
 };
 
-const styles = StyleSheet.create({});
+SearchScreen.navigationOptions = ({ navigation }) => {
+    return {
+        title: "Hotel Buddy",
+        headerRight: (
+        <Button
+            onPress={() => navigation.navigate('Settings')}
+            title="Settings"
+            color = "#3366ff"
+        />
+        ),
+        headerTitleStyle: {
+        // textAlign:'center', 
+        // alignSelf:'center',
+        color: 'white',
+        flex:1
+        }, 
+        headerStyle: {
+        backgroundColor: '#0099ff',
+        },
+        headerRightContainerStyle: {
+        paddingRight: 10,
+        
+        },
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    backgroundImage: {
+        flex: 1,
+        resizeMode: 'cover'
+      }
+});
 
 export default SearchScreen;
