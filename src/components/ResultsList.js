@@ -1,13 +1,18 @@
 import React from 'react';
-import {TouchableOpacity, View, Text, StyleSheet, FlatList } from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
 import { withNavigation } from 'react-navigation'
 
 import ResultsYelpDetails from './ResultYelpDetails';
 
 const ResultsList = ({ title, results, navigation }) => {
+    if (!results.length) {
+        return null;
+    }
+
     return (
     <View style={styles.container}>
         <Text style = { styles.title } > {title} </Text>
+       
         <FlatList
             showsHorizontalScrollIndicator={false}
             horizontal
@@ -31,7 +36,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 10
         
-
     },
     container: {
         marginBottom: 14

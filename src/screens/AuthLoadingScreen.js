@@ -19,7 +19,6 @@ class AuthLoadingScreen extends React.Component {
   checkLoggedIn = () => {
     var firebase = this.context;
     firebase.auth().onAuthStateChanged(user => {
-        console.log(user);
         if (user){
             this.props.navigation.navigate('App');
         }

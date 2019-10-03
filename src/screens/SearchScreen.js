@@ -1,5 +1,8 @@
 import React , {useState, useEffect} from 'react';
-import { ScrollView, View, Text, StyleSheet , Button} from 'react-native';
+import { ScrollView, View, Text, StyleSheet } from 'react-native';
+
+import { Button } from 'react-native-elements';
+import Icon from '@expo/vector-icons/MaterialIcons';
 
 import SearchBar from '../components/SearchBar';
 import ResultsList from '../components/ResultsList';
@@ -46,22 +49,24 @@ SearchScreen.navigationOptions = ({ navigation }) => {
         headerRight: (
         <Button
             onPress={() => navigation.navigate('Settings')}
-            title="Settings"
-            color = "#3366ff"
+            icon={{
+                name: "settings",
+                size: 30,
+                color: "white"
+              }}
         />
         ),
         headerTitleStyle: {
-        // textAlign:'center', 
-        // alignSelf:'center',
-        color: 'white',
-        flex:1
+            // textAlign:'center', 
+            // alignSelf:'center',
+            color: 'white',
+            flex:1
         }, 
         headerStyle: {
-        backgroundColor: '#0099ff',
+            backgroundColor: '#0099ff', 
         },
         headerRightContainerStyle: {
-        paddingRight: 10,
-        
+            paddingRight: 10,
         },
     }
 }
