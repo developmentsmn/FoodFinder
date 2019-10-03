@@ -10,12 +10,6 @@ import SignInScreen from './src/screens/SignInScreen';
 import { FirebaseContext, Firebase } from './src/components/Firebase';
 
 
-
-// const AuthStack = createStackNavigator({ 
-//   SignIn: SignInScreen 
-// });
-
-
 const AppStack = createStackNavigator({
   
   Search: SearchScreen,
@@ -26,7 +20,7 @@ const AppStack = createStackNavigator({
   initialRouteName: 'Search',
   
   defaultNavigationOptions: {
-    title: "Hotel Buddy",
+    // title: "Hotel Buddy",
     headerTitleStyle: {
       textAlign:'center', 
       alignSelf:'center',
